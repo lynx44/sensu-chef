@@ -21,6 +21,8 @@ action :create do
   }
 
   f = sensu_json_file @definition_path do
+    owner node['sensu']['privileged_user']
+    group node['sensu']['group']
     content definition
   end
 
